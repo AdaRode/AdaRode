@@ -1,0 +1,28 @@
+XLnet:
+  name: 'XLnet'
+  path: '/root/autodl-tmp/xlnet-base'
+  checkpoint: './Model/PIK/XLnet/model_epoch17_val_loss0.0060.pth'
+  num_labels: 3
+
+
+RoBERTa:
+  name: 'RoBERTa'
+  path: '/root/autodl-tmp/roberta-base'
+  checkpoint: './Model/PIK/RoBERTa/model_epoch7_val_loss0.0061.pth'
+  num_labels: 3
+
+T5:
+  name: 'T5'
+  path: '/root/autodl-tmp/t5-base'
+  checkpoint: './Model/PIK/T5/model_epoch39_val_loss0.0082.pth'
+  num_labels: 3
+
+BERT:
+  name: 'BERT'
+  path: '/root/autodl-tmp/bert-base-uncased'
+  checkpoint: './Model/PIK/BERT/model_epoch9_val_loss0.0100.pth'
+  num_labels: 3
+
+dataset:
+  path: './Data/PIK/test_set.csv'
+batch_size: 32

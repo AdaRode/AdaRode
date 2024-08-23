@@ -1,0 +1,129 @@
+accept_rate:0.95
+Attack query:10
+Current SQL attacks: 1115, SQL ASR = 56.23%
+Current XSS attacks: 830, XSS ASR = 52.40%
+Current SQL num: 1983
+Current XSS num: 1584
+Average SQL iterations: 6.741675075681131
+Average XSS iterations: 5.933670246367656
+Total attacks: 3567
+Total successful attacks: 1945
+Overall ASR: 54.53%
+Overall average iterations: 6.38288920056101
+
+accept_rate:0.95
+Attack query:50
+Current SQL attacks: 1447, SQL ASR = 72.86%
+Current XSS attacks: 817, XSS ASR = 51.55%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 14.230226700251889
+Average XSS iterations: 11.58459595959596
+Total attacks: 3571
+Total successful attacks: 2264
+Overall ASR: 63.40%
+Overall average iterations: 13.05603810591202
+
+accept_rate:0.95
+Attack query:100
+Current SQL attacks: 1500, SQL ASR = 75.53%
+Current XSS attacks: 825, XSS ASR = 52.05%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 17.277581863979847
+Average XSS iterations: 11.494318181818182
+Total attacks: 3571
+Total successful attacks: 2325
+Overall ASR: 65.11%
+Overall average iterations: 14.710843373493976
+
+accept_rate:0.95
+Attack query:150
+Current SQL attacks: 1490, SQL ASR = 75.03%
+Current XSS attacks: 829, XSS ASR = 52.30%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 20.178841309823678
+Average XSS iterations: 11.464646464646465
+Total attacks: 3571
+Total successful attacks: 2319
+Overall ASR: 64.94%
+Overall average iterations: 16.311291678341274
+
+accept_rate:0.95
+Attack query:200
+Current SQL attacks: 1504, SQL ASR = 75.73%
+Current XSS attacks: 810, XSS ASR = 51.10%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 21.415113350125946
+Average XSS iterations: 11.68939393939394
+Total attacks: 3571
+Total successful attacks: 2314
+Overall ASR: 64.80%
+Overall average iterations: 17.098627066405154
+
+accept_rate:0.90
+Attack query:100
+Current SQL attacks: 1493, SQL ASR = 75.18%
+Current XSS attacks: 822, XSS ASR = 51.86%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 17.35214105793451
+Average XSS iterations: 11.496843434343434
+Total attacks: 3571
+Total successful attacks: 2315
+Overall ASR: 64.83%
+Overall average iterations: 14.753432333987112
+
+accept_rate:0.93
+Attack query:100
+Current SQL attacks: 1491, SQL ASR = 75.08%
+Current XSS attacks: 819, XSS ASR = 51.67%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 17.38337531486146
+Average XSS iterations: 11.546085858585858
+Total attacks: 3571
+Total successful attacks: 2310
+Overall ASR: 64.69%
+Overall average iterations: 14.792659008125526
+
+accept_rate:0.95
+Attack query:100
+Current SQL attacks: 1500, SQL ASR = 75.53%
+Current XSS attacks: 825, XSS ASR = 52.05%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 17.277581863979847
+Average XSS iterations: 11.494318181818182
+Total attacks: 3571
+Total successful attacks: 2325
+Overall ASR: 65.11%
+Overall average iterations: 14.710843373493976
+
+accept_rate:0.97
+Attack query:100
+Current SQL attacks: 1483, SQL ASR = 74.67%
+Current XSS attacks: 809, XSS ASR = 51.04%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 17.32594458438287
+Average XSS iterations: 11.7114898989899
+Total attacks: 3571
+Total successful attacks: 2292
+Overall ASR: 64.18%
+Overall average iterations: 14.83412720650042
+
+accept_rate:1.00
+Attack query:100
+Current SQL attacks: 1471, SQL ASR = 74.07%
+Current XSS attacks: 815, XSS ASR = 51.42%
+Current SQL num: 1986
+Current XSS num: 1585
+Average SQL iterations: 17.40654911838791
+Average XSS iterations: 11.613636363636363
+Total attacks: 3571
+Total successful attacks: 2286
+Overall ASR: 64.02%
+Overall average iterations: 14.83552815914822

@@ -1,0 +1,25 @@
+Dataset: "HPD"
+Model: 
+    # Model_name: "RoBERTa"
+    # PretrainedName: "/root/autodl-tmp/roberta-base"
+    # Model_name: "XLnet"
+    # PretrainedName: "/root/autodl-tmp/xlnet-base" 
+    
+    
+    Model_name: "T5"
+    PretrainedName: "/root/autodl-tmp/t5-base" 
+    # Model_name: "BERT"
+    # PretrainedName: "/root/autodl-tmp/bert-base-uncased" 
+    
+    NumLabels: 3
+Train: 
+    Epoch: 40
+    Max_length: 128
+    lr: 0.000001
+    BatchSize: 32
+
+
+
+
+
+

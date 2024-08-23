@@ -1,0 +1,15 @@
+paths:
+  dataname: PIK
+  data: "/root/autodl-tmp/2Attack_para_selection/Data/selection_sampling.csv"
+  model_checkpoint: "/root/autodl-tmp/2Attack_para_selection/Model/PIK/XLnet/B.pth"
+  augmented_data_save_path: "/root/autodl-tmp/2Attack_para_selection/augdata/advdata.pickle"
+  record_save_path: "/root/autodl-tmp/2Attack_para_selection/augdata/advrecord.pickle"
+  mid_save_path: "/root/autodl-tmp/2Attack_para_selection/augdata/mid/"
+
+parameters:
+  device: "cuda:0"
+  max_iterations: 100 #10,50,100,150,200
+  accept_rate: 1.00 #0.90,0.93,0.95,0.97,1.00
+  patience: 20
+
+n_workers: 2
