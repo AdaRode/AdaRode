@@ -1,16 +1,8 @@
-'''
-Author: Yanjing Yang
-Date: 2024-08-16 02:19:14
-FilePath: \2Attack_para_selection\Result\Iter_analysis.py
-Description: 
-
-Copyright (c) 2024 by NJU(Nanjing University), All Rights Reserved. 
-'''
 import matplotlib.pyplot as plt
 import numpy as np
 
 # 示例数据
-parameters = [10,50,100,150,200]
+parameters = [10, 50, 100, 150, 200]
 overall_asr_counts = [54.53, 63.40, 65.11, 64.94, 64.80]
 
 # 假设一个误差范围
@@ -28,24 +20,23 @@ plt.fill_between(interp_parameters, interp_overall_asr_counts - interp_error, in
 # 绘制原始数据点
 plt.scatter(parameters, overall_asr_counts, color='#0052c4', zorder=5)
 
-# 只标注 (0.95, 65.11) 这个点
+# 只标注 (100, 65.11) 这个点
 selected_x = 100
 selected_y = 65.11
 plt.scatter([selected_x], [selected_y], color='#bf0000', zorder=10)
 
 # 添加半条垂直线和水平线
 plt.plot([selected_x, selected_x], [50, selected_y], color='#bf0000', linestyle='--')
-plt.plot([0.90, selected_x], [selected_y, selected_y], color='#bf0000', linestyle='--')
+plt.plot([10, selected_x], [selected_y, selected_y], color='#bf0000', linestyle='--')
 
-# # 标注坐标轴上的值
-# plt.text(selected_x-1, 60, f'{selected_x}', ha='center', va='bottom', fontsize=20, color='blue')
-# plt.text(10+15, selected_y + 0.4, f'{selected_y}', ha='right', va='center', fontsize=20, color='blue')  # 右上移动一些
+# 设置x轴刻度
+plt.xticks(np.arange(10, 210, 20))
 
 # 设置标签和y轴范围，并调整字体大小
 plt.xlabel('Max Sampling Iteration', fontsize=24)
 plt.ylabel('Overall ASR (%)', fontsize=24)
 plt.ylim(50, 70)  # 设置 y 轴范围
-plt.xlim(10 ,200)  # 设置 x 轴范围从 0.90 开始
+plt.xlim(10, 200)  # 设置 x 轴范围从 10 开始
 plt.grid(True)
 plt.legend(fontsize=18)
 plt.xticks(fontsize=18)

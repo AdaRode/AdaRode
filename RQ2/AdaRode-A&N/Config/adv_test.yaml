@@ -1,0 +1,17 @@
+Victim: AdaRodiaA
+
+paths:
+  dataname: SIK
+  data: "/nvme2n1/YangYJworks/ADV/ICSE_RQ2/Data/SIK/test_set.csv"
+  model_checkpoint: "/nvme2n1/YangYJworks/ADV/ICSE_RQ2/Model/SIK/AdaRodiaA/model_epoch7_val_loss0.0128.pth"
+  augmented_data_save_path: "/nvme2n1/YangYJworks/ADV/ICSE_RQ2/Attackers/AdvMut_data/advdata.pickle"
+  record_save_path: "/nvme2n1/YangYJworks/ADV/ICSE_RQ2/Attackers/Attacklog/attackdata/advrecord.pickle"
+  mid_save_path: "/nvme2n1/YangYJworks/ADV/ICSE_RQ2/Attackers/Attacklog/attackdata/mid/"
+
+XLnet:
+  name: 'XLnet'
+  path: '/nvme2n1/YangYJworks/ADV/xlnet-base-cased'
+  checkpoint: '/nvme2n1/YangYJworks/ADV/ICSE_RQ2/Model/SIK/AdaRodiaA/model_epoch7_val_loss0.0128.pth'
+  num_labels: 3
+  tokenizer: '/nvme2n1/YangYJworks/ADV/xlnet-base-cased'
+batch_size: 32

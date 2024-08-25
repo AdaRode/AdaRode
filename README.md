@@ -52,5 +52,3 @@ python reproduce_rq3.py --data_dir ./data --output_dir ./results/rq3
 ```
 This script will execute the experiments and save the results in the specified output directory.
 
-## Contact
-If you have any questions or run into any issues, please open an issue on this repository or contact us at [your email address].

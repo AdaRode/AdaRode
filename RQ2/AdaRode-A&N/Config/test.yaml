@@ -1,0 +1,15 @@
+XLnet:
+  name: 'XLnet'
+  path: '/nvme2n1/YangYJworks/ADV/xlnet-base-cased'
+  # checkpoint: './Model/HPD/AdaRodiaA/best.pth'
+  checkpoint: './Model/HPD/AdaRodiaN/best.pth'
+  # checkpoint: './Model/PIK/AdaRodiaA/best.pth'
+  # checkpoint: './Model/PIK/AdaRodiaN/best.pth'
+  num_labels: 3
+  tokenizer: '/nvme2n1/YangYJworks/ADV/xlnet-base-cased'
+
+
+
+dataset:
+  path: './Data/HPD/test_set.csv'
+batch_size: 32
