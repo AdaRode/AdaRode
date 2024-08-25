@@ -1,0 +1,11 @@
+SmallModel:
+  dataset: PIK #PIK HPD
+  embedding_method: word2vec #fasttext,word2vec
+  max_sequence_length: 1000
+  split_seed: 42
+  tokenizer_saved_path: ./Model/embedding/
+  embedding_saved_path: ./Model/embedding/
+  model_save_path: ./Model/DeepModel/
+
+  epochs: 100 #目前只给bilstm,bigru实装
+  patience: 10

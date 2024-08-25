@@ -1,0 +1,37 @@
+nohup: ignoring input
+/root/miniconda3/lib/python3.10/site-packages/transformers/utils/generic.py:260: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+/root/miniconda3/lib/python3.10/site-packages/transformers/utils/generic.py:260: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+Some weights of RobertaModel were not initialized from the model checkpoint at /root/autodl-tmp/roberta-base and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Testing:   0%|          | 0/192 [00:00<?, ?it/s]Testing:   1%|          | 1/192 [00:01<03:16,  1.03s/it]Testing:   2%|▏         | 3/192 [00:01<00:57,  3.26it/s]Testing:   3%|▎         | 5/192 [00:01<00:32,  5.67it/s]Testing:   4%|▎         | 7/192 [00:01<00:22,  8.04it/s]Testing:   5%|▍         | 9/192 [00:01<00:17, 10.24it/s]Testing:   6%|▌         | 11/192 [00:01<00:14, 12.16it/s]Testing:   7%|▋         | 13/192 [00:01<00:12, 13.77it/s]Testing:   8%|▊         | 15/192 [00:01<00:11, 15.03it/s]Testing:   9%|▉         | 17/192 [00:01<00:10, 16.01it/s]Testing:  10%|▉         | 19/192 [00:01<00:10, 16.70it/s]Testing:  11%|█         | 21/192 [00:02<00:09, 17.21it/s]Testing:  12%|█▏        | 23/192 [00:02<00:09, 17.62it/s]Testing:  13%|█▎        | 25/192 [00:02<00:09, 17.92it/s]Testing:  14%|█▍        | 27/192 [00:02<00:09, 18.11it/s]Testing:  15%|█▌        | 29/192 [00:02<00:08, 18.23it/s]Testing:  16%|█▌        | 31/192 [00:02<00:08, 18.35it/s]Testing:  17%|█▋        | 33/192 [00:02<00:08, 18.30it/s]Testing:  18%|█▊        | 35/192 [00:02<00:08, 18.42it/s]Testing:  19%|█▉        | 37/192 [00:02<00:08, 18.49it/s]Testing:  20%|██        | 39/192 [00:03<00:08, 18.52it/s]Testing:  21%|██▏       | 41/192 [00:03<00:08, 18.55it/s]Testing:  22%|██▏       | 43/192 [00:03<00:08, 18.55it/s]Testing:  23%|██▎       | 45/192 [00:03<00:07, 18.56it/s]Testing:  24%|██▍       | 47/192 [00:03<00:07, 18.58it/s]Testing:  26%|██▌       | 49/192 [00:03<00:07, 18.60it/s]Testing:  27%|██▋       | 51/192 [00:03<00:07, 18.59it/s]Testing:  28%|██▊       | 53/192 [00:03<00:07, 18.57it/s]Testing:  29%|██▊       | 55/192 [00:03<00:07, 18.57it/s]Testing:  30%|██▉       | 57/192 [00:04<00:07, 18.57it/s]Testing:  31%|███       | 59/192 [00:04<00:07, 18.55it/s]Testing:  32%|███▏      | 61/192 [00:04<00:07, 18.53it/s]Testing:  33%|███▎      | 63/192 [00:04<00:06, 18.52it/s]Testing:  34%|███▍      | 65/192 [00:04<00:06, 18.53it/s]Testing:  35%|███▍      | 67/192 [00:04<00:06, 18.56it/s]Testing:  36%|███▌      | 69/192 [00:04<00:06, 18.58it/s]Testing:  37%|███▋      | 71/192 [00:04<00:06, 18.57it/s]Testing:  38%|███▊      | 73/192 [00:04<00:06, 18.59it/s]Testing:  39%|███▉      | 75/192 [00:05<00:06, 18.58it/s]Testing:  40%|████      | 77/192 [00:05<00:06, 18.56it/s]Testing:  41%|████      | 79/192 [00:05<00:06, 18.56it/s]Testing:  42%|████▏     | 81/192 [00:05<00:05, 18.55it/s]Testing:  43%|████▎     | 83/192 [00:05<00:05, 18.54it/s]Testing:  44%|████▍     | 85/192 [00:05<00:05, 18.55it/s]Testing:  45%|████▌     | 87/192 [00:05<00:05, 18.55it/s]Testing:  46%|████▋     | 89/192 [00:05<00:05, 18.55it/s]Testing:  47%|████▋     | 91/192 [00:05<00:05, 18.53it/s]Testing:  48%|████▊     | 93/192 [00:05<00:05, 18.53it/s]Testing:  49%|████▉     | 95/192 [00:06<00:05, 18.51it/s]Testing:  51%|█████     | 97/192 [00:06<00:05, 18.52it/s]Testing:  52%|█████▏    | 99/192 [00:06<00:05, 18.53it/s]Testing:  53%|█████▎    | 101/192 [00:06<00:04, 18.52it/s]Testing:  54%|█████▎    | 103/192 [00:06<00:04, 18.52it/s]Testing:  55%|█████▍    | 105/192 [00:06<00:04, 18.52it/s]Testing:  56%|█████▌    | 107/192 [00:06<00:04, 18.52it/s]Testing:  57%|█████▋    | 109/192 [00:06<00:04, 18.53it/s]Testing:  58%|█████▊    | 111/192 [00:06<00:04, 18.51it/s]Testing:  59%|█████▉    | 113/192 [00:07<00:04, 18.54it/s]Testing:  60%|█████▉    | 115/192 [00:07<00:04, 18.56it/s]Testing:  61%|██████    | 117/192 [00:07<00:04, 18.49it/s]Testing:  62%|██████▏   | 119/192 [00:07<00:03, 18.49it/s]Testing:  63%|██████▎   | 121/192 [00:07<00:03, 18.48it/s]Testing:  64%|██████▍   | 123/192 [00:07<00:03, 18.51it/s]Testing:  65%|██████▌   | 125/192 [00:07<00:03, 18.52it/s]Testing:  66%|██████▌   | 127/192 [00:07<00:03, 18.51it/s]Testing:  67%|██████▋   | 129/192 [00:07<00:03, 18.43it/s]Testing:  68%|██████▊   | 131/192 [00:08<00:03, 18.47it/s]Testing:  69%|██████▉   | 133/192 [00:08<00:03, 18.48it/s]Testing:  70%|███████   | 135/192 [00:08<00:03, 18.51it/s]Testing:  71%|███████▏  | 137/192 [00:08<00:02, 18.52it/s]Testing:  72%|███████▏  | 139/192 [00:08<00:02, 18.51it/s]Testing:  73%|███████▎  | 141/192 [00:08<00:02, 18.54it/s]Testing:  74%|███████▍  | 143/192 [00:08<00:02, 18.51it/s]Testing:  76%|███████▌  | 145/192 [00:08<00:02, 18.50it/s]Testing:  77%|███████▋  | 147/192 [00:08<00:02, 18.51it/s]Testing:  78%|███████▊  | 149/192 [00:09<00:02, 18.52it/s]Testing:  79%|███████▊  | 151/192 [00:09<00:02, 18.50it/s]Testing:  80%|███████▉  | 153/192 [00:09<00:02, 18.49it/s]Testing:  81%|████████  | 155/192 [00:09<00:01, 18.50it/s]Testing:  82%|████████▏ | 157/192 [00:09<00:01, 18.50it/s]Testing:  83%|████████▎ | 159/192 [00:09<00:01, 18.50it/s]Testing:  84%|████████▍ | 161/192 [00:09<00:01, 18.51it/s]Testing:  85%|████████▍ | 163/192 [00:09<00:01, 18.50it/s]Testing:  86%|████████▌ | 165/192 [00:09<00:01, 18.48it/s]Testing:  87%|████████▋ | 167/192 [00:09<00:01, 18.49it/s]Testing:  88%|████████▊ | 169/192 [00:10<00:01, 18.51it/s]Testing:  89%|████████▉ | 171/192 [00:10<00:01, 18.51it/s]Testing:  90%|█████████ | 173/192 [00:10<00:01, 18.51it/s]Testing:  91%|█████████ | 175/192 [00:10<00:00, 18.50it/s]Testing:  92%|█████████▏| 177/192 [00:10<00:00, 18.51it/s]Testing:  93%|█████████▎| 179/192 [00:10<00:00, 18.49it/s]Testing:  94%|█████████▍| 181/192 [00:10<00:00, 18.51it/s]Testing:  95%|█████████▌| 183/192 [00:10<00:00, 18.51it/s]Testing:  96%|█████████▋| 185/192 [00:10<00:00, 18.51it/s]Testing:  97%|█████████▋| 187/192 [00:11<00:00, 18.51it/s]Testing:  98%|█████████▊| 189/192 [00:11<00:00, 18.53it/s]Testing:  99%|█████████▉| 191/192 [00:11<00:00, 18.51it/s]Testing: 100%|██████████| 192/192 [00:11<00:00, 16.96it/s]
+Test Accuracy: 1.0000
+====================Multi====================
+              precision    recall  f1-score   support
+
+           0     1.0000    1.0000    1.0000      3911
+           1     1.0000    1.0000    1.0000      2124
+           2     1.0000    1.0000    1.0000       103
+
+    accuracy                         1.0000      6138
+   macro avg     1.0000    1.0000    1.0000      6138
+weighted avg     1.0000    1.0000    1.0000      6138
+
+Precision: 1.0000
+Recall: 1.0000
+F1-score: 1.0000
+====================XSS====================
+Precision: 1.0000
+Recall: 1.0000
+F1-score: 1.0000
+Accuracy: 1.0000
+AUC: 1.0000
+MCC: 1.0000
+====================SQL====================
+Precision: 1.0000
+Recall: 1.0000
+F1-score: 1.0000
+Accuracy: 1.0000
+AUC: 1.0000
+MCC: 1.0000

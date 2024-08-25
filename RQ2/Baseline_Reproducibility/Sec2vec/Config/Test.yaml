@@ -1,0 +1,8 @@
+
+RoBERTa:
+  name: 'RoBERTa'
+  path: '/nvme2n1/PTMs/roberta-base'
+  checkpoint: '/nvme2n1/YangYJworks/xjw/YYJex/AdRandSample/Model/HPD/Sec2Vec/best.pth'
+  # checkpoint: './Model/HPD/RoBERTa/best.pth'
+  num_labels: 3
+batch_size: 32

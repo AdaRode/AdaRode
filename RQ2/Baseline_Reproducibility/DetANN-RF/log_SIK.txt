@@ -1,0 +1,29 @@
+nohup: ignoring input
+====================Multi====================
+              precision    recall  f1-score   support
+
+           0     0.9848    0.9909    0.9878      4182
+           1     0.9876    0.9744    0.9809      1794
+           2     0.9793    0.9776    0.9784      1161
+
+    accuracy                         0.9846      7137
+   macro avg     0.9839    0.9810    0.9824      7137
+weighted avg     0.9846    0.9846    0.9846      7137
+
+Precision: 0.9846
+Recall: 0.9846
+F1-score: 0.9846
+====================XSS====================
+Precision: 0.9793
+Recall: 0.9776
+F1-score: 0.9784
+Accuracy: 0.9930
+AUC: 0.9868
+MCC: 0.9743
+====================SQL====================
+Precision: 0.9876
+Recall: 0.9744
+F1-score: 0.9809
+Accuracy: 0.9905
+AUC: 0.9851
+MCC: 0.9746

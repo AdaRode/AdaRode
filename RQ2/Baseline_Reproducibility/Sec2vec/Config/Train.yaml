@@ -1,0 +1,16 @@
+Dataset: "HPD"
+Model: 
+    Model_name: "RoBERTa"
+    PretrainedName: "/root/autodl-tmp/roberta-base"
+    NumLabels: 3
+Train: 
+    Epoch: 40
+    Max_length: 128
+    lr: 0.000001
+    BatchSize: 32
+
+
+
+
+
+

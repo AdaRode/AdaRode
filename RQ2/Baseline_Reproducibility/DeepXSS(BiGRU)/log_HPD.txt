@@ -1,0 +1,47 @@
+nohup: ignoring input
+Test set size: 6138
+Using device: cuda
+GPU Name: NVIDIA GeForce RTX 3080
+Compute Capability: 8.6
+Testing:   0%|          | 0/192 [00:00<?, ?it/s]Testing:   1%|          | 1/192 [00:00<00:31,  6.10it/s]Testing:   5%|▌         | 10/192 [00:00<00:04, 44.50it/s]Testing:  10%|█         | 20/192 [00:00<00:02, 65.09it/s]Testing:  16%|█▌        | 30/192 [00:00<00:02, 76.62it/s]Testing:  21%|██        | 40/192 [00:00<00:01, 83.99it/s]Testing:  27%|██▋       | 51/192 [00:00<00:01, 90.07it/s]Testing:  32%|███▏      | 62/192 [00:00<00:01, 92.22it/s]Testing:  38%|███▊      | 72/192 [00:00<00:01, 81.30it/s]Testing:  42%|████▏     | 81/192 [00:01<00:01, 74.92it/s]Testing:  46%|████▋     | 89/192 [00:01<00:01, 71.21it/s]Testing:  51%|█████     | 97/192 [00:01<00:01, 67.99it/s]Testing:  54%|█████▍    | 104/192 [00:01<00:01, 67.22it/s]Testing:  58%|█████▊    | 111/192 [00:01<00:01, 66.73it/s]Testing:  61%|██████▏   | 118/192 [00:01<00:01, 66.42it/s]Testing:  65%|██████▌   | 125/192 [00:01<00:01, 66.20it/s]Testing:  69%|██████▉   | 132/192 [00:01<00:00, 66.01it/s]Testing:  72%|███████▏  | 139/192 [00:01<00:00, 65.70it/s]Testing:  76%|███████▌  | 146/192 [00:02<00:00, 64.37it/s]Testing:  80%|███████▉  | 153/192 [00:02<00:00, 63.64it/s]Testing:  83%|████████▎ | 160/192 [00:02<00:00, 64.10it/s]Testing:  87%|████████▋ | 167/192 [00:02<00:00, 64.41it/s]Testing:  91%|█████████ | 174/192 [00:02<00:00, 64.21it/s]Testing:  94%|█████████▍| 181/192 [00:02<00:00, 64.30it/s]Testing:  98%|█████████▊| 188/192 [00:02<00:00, 64.20it/s]Testing: 100%|██████████| 192/192 [00:02<00:00, 67.87it/s]
+/root/miniconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/root/miniconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/root/miniconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/root/miniconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/root/miniconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/root/miniconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Test Accuracy: 0.6372
+====================Multi====================
+              precision    recall  f1-score   support
+
+           0     0.6372    1.0000    0.7784      3911
+           1     0.0000    0.0000    0.0000      2124
+           2     0.0000    0.0000    0.0000       103
+
+    accuracy                         0.6372      6138
+   macro avg     0.2124    0.3333    0.2595      6138
+weighted avg     0.4060    0.6372    0.4960      6138
+
+Precision: 0.4060
+Recall: 0.6372
+F1-score: 0.4960
+====================XSS====================
+Precision: 0.0000
+Recall: 0.0000
+F1-score: 0.0000
+Accuracy: 0.9832
+AUC: 0.5000
+MCC: 0.0000
+====================SQL====================
+Precision: 0.0000
+Recall: 0.0000
+F1-score: 0.0000
+Accuracy: 0.6540
+AUC: 0.5000
+MCC: 0.0000

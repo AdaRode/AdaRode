@@ -1,0 +1,32 @@
+nohup: ignoring input
+Using device: cuda
+Testing:   0%|          | 0/192 [00:00<?, ?it/s]Testing:   1%|          | 1/192 [00:00<00:28,  6.82it/s]Testing:  70%|██████▉   | 134/192 [00:00<00:00, 658.20it/s]Testing: 100%|██████████| 192/192 [00:00<00:00, 661.37it/s]
+Test Loss: 0.0500, Test Accuracy: 0.9787
+====================Multi====================
+              precision    recall  f1-score   support
+
+           0     0.9903    0.9936    0.9920      3911
+           1     0.9681    0.9722    0.9702      2124
+           2     0.6914    0.5437    0.6087       103
+
+    accuracy                         0.9787      6138
+   macro avg     0.8833    0.8365    0.8569      6138
+weighted avg     0.9776    0.9787    0.9780      6138
+
+Precision: 0.9776
+Recall: 0.9787
+F1-score: 0.9780
+====================XSS====================
+Precision: 0.6914
+Recall: 0.5437
+F1-score: 0.6087
+Accuracy: 0.9883
+AUC: 0.7698
+MCC: 0.6073
+====================SQL====================
+Precision: 0.9681
+Recall: 0.9722
+F1-score: 0.9702
+Accuracy: 0.9793
+AUC: 0.9776
+MCC: 0.9543

@@ -1,0 +1,30 @@
+paths:
+  HPD:
+    data: "/nvme2n1/YangYJworks/xjw/YYJex/AdRandSample/Data/HPD/test_set.csv"
+    # model_checkpoint: "/nvme2n1/YangYJworks/ADV/AdRandSample/Model/SIK/AdRandSampleA/model_epoch7_val_loss0.0128.pth"
+    augmented_data_save_path: "./Attackers/AdvMut_data/HPD/"
+    # record_save_path: "./Attackers/Attacklog/attackdata/advrecord.pickle"
+    # mid_save_path: "./Attackers/Attacklog/attackdata/mid/"
+
+  PIK:
+    data: "/nvme2n1/YangYJworks/xjw/YYJex/AdRandSample/Data/PIK/test_set.csv"
+    # model_checkpoint: "/nvme2n1/YangYJworks/ADV/AdRandSample/Model/SIK/AdRandSampleA/model_epoch7_val_loss0.0128.pth"
+    augmented_data_save_path: "./Attackers/AdvMut_data/PIK/"
+    # record_save_path: "./Attackers/Attacklog/attackdata/advrecord.pickle"
+    # mid_save_path: "./Attackers/Attacklog/attackdata/mid/"
+
+parameters:
+  device: "cuda:2"
+  max_iterations: 100
+  patience: 100
+
+n_workers: 2
+
+# 这里直接协商对应模型的路径就好了
+XLnet:
+  name: 'XLnet'
+  path: '/nvme2n1/YangYJworks/ADV/xlnet-base-cased'
+  checkpoint: '/nvme2n1/YangYJworks/ADV/AdRandSample/Model/SIK/AdRandSampleA/model_epoch7_val_loss0.0128.pth'
+  num_labels: 3
+  tokenizer: '/nvme2n1/YangYJworks/ADV/xlnet-base-cased'
+batch_size: 32
