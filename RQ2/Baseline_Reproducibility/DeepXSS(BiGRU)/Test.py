@@ -27,7 +27,6 @@ def pad_sequences(sequences, maxlen, padding='post'):
                 padded_sequences[i, -len(seq):] = seq
     return padded_sequences
 
-# 数据读取模板类
 class DataProcessor:
     def __init__(self, file_path, verbose=1, seed=1):
         self.file_path = file_path
@@ -43,7 +42,6 @@ class DataProcessor:
             print("Getting data from file:", self.file_path)
 
 class Action_json_data(DataProcessor):
-    # 初始化函数
     def __init__(self, file_path, verbose=1, seed=1):
         super().__init__(file_path=file_path, verbose=verbose, seed=seed)
 
@@ -209,7 +207,6 @@ class TestModule:
         print(f"AUC: {auc:.4f}")
         print(f"MCC: {mcc:.4f}")
 
-# 加载配置文件
 config = yaml.safe_load(open("./TFModel/config/smallmodel.yaml", 'r', encoding="UTF-8"))
 
 dataset = config.get('SmallModel').get('dataset')
@@ -217,8 +214,6 @@ embedding_method = config.get('SmallModel').get('embedding_method')
 max_sequence_length = config.get('SmallModel').get('max_sequence_length')
 model_save_path = config.get('SmallModel').get('model_save_path')
 
-# 读取测试数据
-# 读取测试数据
 import pickle
 datasets = "./Data/{}/test.pickle".format(dataset)
 with open(datasets,"rb") as file:
@@ -235,11 +230,9 @@ Labels = data['adv_label']
 # Labels = data['adv_label']
 # device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
 
-# 加载Word2Vec模型
 w2v_model_save_path = os.path.join(model_save_path, dataset, "word2vec.model")
 w2v_model = Word2Vec.load(w2v_model_save_path)
 
-# 嵌入测试文本数据
 embedded_texts = []
 for text in Texts:
     words = text.split()
@@ -251,18 +244,14 @@ for text in Texts:
 
 padded_texts = pad_sequences(embedded_texts, max_sequence_length)
 
-# 转换为 PyTorch tensors
 test_set_x = torch.tensor(padded_texts, dtype=torch.float32)
 test_set_y = torch.tensor(Labels, dtype=torch.long)
 
-# 创建 Dataset 和 DataLoader
 test_dataset = TensorDataset(test_set_x, test_set_y)
 test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
-# 打印一些信息
 print(f"Test set size: {len(test_dataset)}")
 
-# 检查是否有可用的 GPU
 device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
@@ -282,10 +271,8 @@ dropout_prob = 0.5  # Dropout probability
 model = BiGRUModel(input_dim, hidden_dim, num_layers, num_classes, dropout_prob).to(device)
 
 
-# 加载训练好的模型
 best_model_path = os.path.join(model_save_path, dataset, 'B.pth')
 model.load_state_dict(torch.load(best_model_path, map_location=device))
 
-# 创建并评估模型
 tester = TestModule(model, device)
 tester.test_with_progress(test_loader)

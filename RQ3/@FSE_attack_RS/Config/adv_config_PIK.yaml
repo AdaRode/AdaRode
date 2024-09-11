@@ -1,0 +1,13 @@
+paths:
+  model_checkpoint: "/root/autodl-fs/@ICSE_RQ3_RS/Model/PIK/XLnet/Best.pth"
+  augmented_data_save_path: "/root/autodl-fs/@ICSE_RQ3_RS/augdata/adv_data_PIK.pickle"
+  attack_result_save_path: "/root/autodl-fs/@ICSE_RQ3_RS/augdata/"
+
+parameters:
+  dataname: PIK
+  device: "cuda:0"
+  max_iterations: 100
+  accept_rate: 0.95
+  patience: 20
+
+n_workers: 2

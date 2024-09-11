@@ -173,9 +173,9 @@ class T5Det(nn.Module):
         self.classifier = nn.Linear(self.t5.config.d_model, num_labels)
 
     def forward(self, input_ids, attention_mask=None, labels=None):
-        outputs = self.t5.encoder(input_ids=input_ids, attention_mask=attention_mask)  # 使用T5的编码器
+        outputs = self.t5.encoder(input_ids=input_ids, attention_mask=attention_mask)  
         sequence_output = outputs.last_hidden_state
-        pooled_output = self.pooler(sequence_output.permute(0, 2, 1)).squeeze(-1)  # 池化操作
+        pooled_output = self.pooler(sequence_output.permute(0, 2, 1)).squeeze(-1)  
         logits = self.classifier(pooled_output)
         if labels is not None:
             loss_fct = nn.CrossEntropyLoss()
@@ -184,7 +184,7 @@ class T5Det(nn.Module):
         return logits
 
 class BertDet(nn.Module):
-    def __init__(self, model_name='bert-base-uncased', num_labels=3):  # 添加BERT相关的默认参数
+    def __init__(self, model_name='bert-base-uncased', num_labels=3):  
         super(BertDet, self).__init__()
         self.num_labels = num_labels
         self.bert = BertModel.from_pretrained(model_name)

@@ -9,7 +9,6 @@ import pandas as pd
 from tqdm import tqdm
 from sklearn.metrics import classification_report, precision_recall_fscore_support, precision_score, recall_score, f1_score, accuracy_score, roc_auc_score, matthews_corrcoef
 
-# 读取配置文件
 config = yaml.safe_load(open("./TFModel/config/smallmodel.yaml", 'r', encoding="UTF-8"))
 
 dataset = config.get('SmallModel').get('dataset')

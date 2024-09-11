@@ -24,7 +24,6 @@ def pad_sequences(sequences, maxlen, padding='post'):
                 padded_sequences[i, -len(seq):] = seq
     return padded_sequences
 
-# 数据读取模板类
 class DataProcessor:
     def __init__(self, file_path, verbose=1, seed=1):
         self.file_path = file_path
@@ -40,7 +39,7 @@ class DataProcessor:
             print("Getting data from file:", self.file_path)
 
 class Action_json_data(DataProcessor):
-    # 初始化函数
+
     def __init__(self, file_path, verbose=1, seed=1):
         super().__init__(file_path=file_path, verbose=verbose, seed=seed)
 
@@ -64,7 +63,6 @@ class Action_json_data(DataProcessor):
         }
         return res
 
-# 特征提取函数
 def extract_features(payload, keywords, keyword_weights):
     lp = len(payload)
     nk = sum(payload.count(k) for k in keywords)
@@ -79,11 +77,9 @@ def extract_features(payload, keywords, keyword_weights):
     
     return [lp, nk, kws, nspa, rspa, nspe, rspe, roc]
 
-# 关键词和权重
 keywords = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'UNION', 'OR', 'AND', 'FROM', 'WHERE']
 keyword_weights = {k: 1 for k in keywords}
 
-# 数据分割函数
 def partition_data(data_list_pad, data_list_id, data_list_label, split_seed, testsize=0.2, validationsize=0.2, usetestflag=False):
     if not usetestflag:
         train_vali_set_x, test_set_x, train_vali_set_y, test_set_y, train_vali_set_id, test_set_id = train_test_split(
@@ -96,7 +92,6 @@ def partition_data(data_list_pad, data_list_id, data_list_label, split_seed, tes
             data_list_pad, data_list_label, data_list_id, test_size=testsize, random_state=split_seed)
         return train_set_x, train_set_y, train_set_id, validation_set_x, validation_set_y, validation_set_id
 
-# 加载配置文件
 config = yaml.safe_load(open("./TFModel/config/smallmodel.yaml", 'r', encoding="UTF-8"))
 
 dataset = config.get('SmallModel').get('dataset')
@@ -109,7 +104,6 @@ model_save_path = config.get('SmallModel').get('model_save_path')
 epochs = config.get('SmallModel').get('epochs')
 patience = config.get('SmallModel').get('patience')
 
-# 读取数据
 datapath = os.getcwd() + os.sep + "Data" + os.sep + dataset + os.sep + "train_set.csv"
 Operate_data = Action_json_data(file_path=datapath, verbose=-1, seed=1)
 Texts = Operate_data.get_data()["texts"].tolist()
@@ -119,25 +113,20 @@ Types = Operate_data.get_data()["types"].tolist()
 Labels = [int(i) for i in Ylab]
 Labels = np.array(Labels)
 
-# 提取特征
 feature_list = [extract_features(payload, keywords, keyword_weights) for payload in Texts]
 feature_array = np.array(feature_list)
 
-# 数据分割
 print("Partition the data....")
 train_set_x, train_set_y, train_set_id, validation_set_x, validation_set_y, validation_set_id = partition_data(
     feature_array, Types, Labels, split_seed, usetestflag=True)
 
-# 训练随机森林模型
 rf = RandomForestClassifier(n_estimators=100, random_state=split_seed)
 rf.fit(train_set_x, train_set_y)
 
-# 验证模型
 val_predictions = rf.predict(validation_set_x)
 val_accuracy = accuracy_score(validation_set_y, val_predictions)
 print(f'Validation Accuracy: {val_accuracy:.4f}')
 
-# 保存模型
 model_save_dir = os.path.join(model_save_path, dataset)
 os.makedirs(model_save_dir, exist_ok=True)
 dump(rf, os.path.join(model_save_dir, 'random_forest_model.joblib'))

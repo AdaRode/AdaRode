@@ -241,7 +241,7 @@ if device.type == 'cuda':
 # Model instantiation
 input_dim = feature_array.shape[1]
 num_classes = len(set(Labels))
-hidden_dim = 128  # 设置隐藏层维度
+hidden_dim = 128 
 model = DNN(input_dim, hidden_dim, num_classes).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)

@@ -23,7 +23,7 @@ class RodeXL(nn.Module):
     def forward(self, input_ids, attention_mask=None, labels=None):
         outputs = self.xlnet(input_ids=input_ids, attention_mask=attention_mask)
         sequence_output = outputs[0]
-        logits = self.classifier(sequence_output[:, 0, :])  # 取CLS token的输出进行分类
+        logits = self.classifier(sequence_output[:, 0, :]) 
         if labels is not None:
             loss_fct = nn.CrossEntropyLoss()
             loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))

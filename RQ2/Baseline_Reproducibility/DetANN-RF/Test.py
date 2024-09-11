@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 from joblib import load
 from sklearn.metrics import classification_report, precision_recall_fscore_support, precision_score, recall_score, f1_score, accuracy_score, roc_auc_score, matthews_corrcoef
 
-# 读取配置文件
+
 config = yaml.safe_load(open("./TFModel/config/smallmodel.yaml", 'r', encoding="UTF-8"))
 
 dataset = config.get('SmallModel').get('dataset')
@@ -20,7 +20,6 @@ model_save_path = config.get('SmallModel').get('model_save_path')
 epochs = config.get('SmallModel').get('epochs')
 patience = config.get('SmallModel').get('patience')
 
-# 数据读取模板类
 class DataProcessor:
     def __init__(self, file_path, verbose=1, seed=1):
         self.file_path = file_path
@@ -59,7 +58,6 @@ class Action_json_data(DataProcessor):
         }
         return res
 
-# 定义特征提取函数
 def extract_features(payload, keywords, keyword_weights):
     lp = len(payload)
     nk = sum(payload.count(k) for k in keywords)
@@ -74,7 +72,6 @@ def extract_features(payload, keywords, keyword_weights):
 
     return [lp, nk, kws, nspa, rspa, nspe, rspe, roc]
 
-# 关键词和权重
 keywords = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'UNION', 'OR', 'AND', 'FROM', 'WHERE']
 keyword_weights = {k: 1 for k in keywords}
 
@@ -91,19 +88,14 @@ test_labels = data['adv_label']
 Texts = test_texts
 Labels = np.array(test_labels)
 
-# 提取特征
 feature_list = [extract_features(payload, keywords, keyword_weights) for payload in Texts]
 feature_array = np.array(feature_list)
 
-# 加载模型
 model_path = os.path.join(model_save_path, dataset, 'random_forest_model.joblib')
 rf = load(model_path)
 
-# 测试模型并计算指标
 def test_rf(rf, feature_array, Labels):
     preds = rf.predict(feature_array)
-    
-    # 计算和打印指标
     test_multiple(Labels, preds)
     test_xss(Labels, preds)
     test_sql(Labels, preds)
@@ -157,5 +149,4 @@ def test_sql(y_true, y_pred):
     print(f"AUC: {auc:.4f}")
     print(f"MCC: {mcc:.4f}")
 
-# 运行测试
 test_rf(rf, feature_array, Labels)

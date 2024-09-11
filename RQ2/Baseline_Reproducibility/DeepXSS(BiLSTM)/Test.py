@@ -27,7 +27,7 @@ def pad_sequences(sequences, maxlen, padding='post'):
                 padded_sequences[i, -len(seq):] = seq
     return padded_sequences
 
-# 数据读取模板类
+
 class DataProcessor:
     def __init__(self, file_path, verbose=1, seed=1):
         self.file_path = file_path
@@ -43,7 +43,7 @@ class DataProcessor:
             print("Getting data from file:", self.file_path)
 
 class Action_json_data(DataProcessor):
-    # 初始化函数
+
     def __init__(self, file_path, verbose=1, seed=1):
         super().__init__(file_path=file_path, verbose=verbose, seed=seed)
 

@@ -32,14 +32,14 @@ class WordEmbeddingBuilder:
         self.model = None
     
     def build_word2vec(self, sentences):
-        # 输出参与Word2Vec训练的数据的摘要信息
+
         print(f"Number of texts used for Word2Vec training: {len(sentences)}")
         print("Sample texts used for Word2Vec training:")
         for i in range(min(5, len(sentences))):
             print(' '.join(sentences[i]))
         
         self.model = Word2Vec(sentences, vector_size=self.vector_size, window=self.window, min_count=self.min_count, workers=self.workers)
-        # 输出参与Word2Vec训练的词汇数量
+
         print(f"Number of unique words in Word2Vec vocabulary: {len(self.model.wv.index_to_key)}")
     
     def transform(self, texts):
@@ -93,7 +93,6 @@ def pad_sequences(sequences, maxlen, padding='post'):
                 padded_sequences[i, -len(seq):] = seq
     return padded_sequences
 
-# 数据读取模板类
 class DataProcessor:
     def __init__(self, file_path, verbose=1, seed=1):
         self.file_path = file_path
@@ -109,7 +108,7 @@ class DataProcessor:
             print("Getting data from file:", self.file_path)
 
 class Action_json_data(DataProcessor):
-    # 初始化函数
+
     def __init__(self, file_path, verbose=1, seed=1):
         super().__init__(file_path=file_path, verbose=verbose, seed=seed)
 
@@ -132,7 +131,6 @@ class Action_json_data(DataProcessor):
         }
         return res
 
-# 训练和验证函数
 class ModelTrainer:
     def __init__(self, model, train_loader, val_loader, criterion, optimizer, epochs, model_dir, device, dataset, patience=5):
         self.model = model
@@ -200,7 +198,6 @@ class ModelTrainer:
         print(f'Validation Loss: {avg_val_loss:.4f}')
         return avg_val_loss
 
-# 加载配置文件
 config = yaml.safe_load(open("./TFModel/config/smallmodel.yaml", 'r', encoding="UTF-8"))
 
 dataset = config.get('SmallModel').get('dataset')
@@ -213,7 +210,6 @@ model_save_path = config.get('SmallModel').get('model_save_path')
 epochs = config.get('SmallModel').get('epochs')
 patience = config.get('SmallModel').get('patience')
 
-# 读取数据
 datapath = os.getcwd() + os.sep + "Data" + os.sep + dataset + os.sep + "train_set.csv"
 Operate_data = Action_json_data(file_path=datapath, verbose=-1, seed=1)
 Texts = Operate_data.get_data()["texts"].tolist()
@@ -223,46 +219,37 @@ Types = Operate_data.get_data()["types"].tolist()
 Labels = [int(i) for i in Ylab]
 Labels = np.array(Labels)
 
-# 过滤掉Label为0的数据
 filtered_texts = Texts
 filtered_labels = Labels
 
-# 训练Word2Vec模型
 embedding_builder = WordEmbeddingBuilder(vector_size=100, window=5, min_count=1, workers=4)
 embedding_builder.build_word2vec([text.split() for text in filtered_texts])
 
-# 将文本转换为嵌入
 embedded_texts = embedding_builder.transform(Texts)
 padded_texts = pad_sequences(embedded_texts, max_sequence_length)
 
-# 保存Word2Vec模型
 w2v_model_save_path = os.path.join(model_save_path, dataset, "word2vec.model")
 embedding_builder.save_model(w2v_model_save_path)
 
-# 数据分割
 print("Partition the data....")
 train_set_x, train_set_y, train_set_id, validation_set_x, validation_set_y, validation_set_id = partition_data(
     padded_texts, Types, Labels, split_seed, usetestflag=True)
 print("Partition completed....")
 
-# 转换为 PyTorch tensors
 train_set_x = torch.tensor(train_set_x, dtype=torch.float32)
 train_set_y = torch.tensor(train_set_y, dtype=torch.long)
 validation_set_x = torch.tensor(validation_set_x, dtype=torch.float32)
 validation_set_y = torch.tensor(validation_set_y, dtype=torch.long)
 
-# 创建 Dataset 和 DataLoader
 train_dataset = TensorDataset(train_set_x, train_set_y)
 val_dataset = TensorDataset(validation_set_x, validation_set_y)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
 
-# 打印一些信息
 print(f"Training set size: {len(train_dataset)}")
 print(f"Validation set size: {len(val_dataset)}")
 
-# 检查是否有可用的 GPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
@@ -272,19 +259,15 @@ if device.type == 'cuda':
     print(f"GPU Name: {gpu_name}")
     print(f"Compute Capability: {compute_capability[0]}.{compute_capability[1]}")
 
-# 模型实例化
 input_dim = 100  # Word2Vec vector size
 num_classes = len(set(filtered_labels))  # Number of classes
-# 模型实例化
 input_dim = 100  # Word2Vec vector size
 num_classes = len(set(Labels))
-num_filters = 100  # 卷积核数量
-kernel_sizes = [3, 4, 5]  # 卷积核大小
+num_filters = 100  # 
+kernel_sizes = [3, 4, 5]  # 
 model = TextCNN(input_dim, num_classes, kernel_sizes, num_filters).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
-
-# 创建并训练模型
 trainer = ModelTrainer(model, train_loader, val_loader, criterion,
                         optimizer, epochs, model_save_path, 
                         device, dataset, patience)

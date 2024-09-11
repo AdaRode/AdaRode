@@ -10,7 +10,6 @@ from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 from gensim.models import Word2Vec
 
-# 数据分割函数
 def partition_data(data_list_pad, data_list_id, data_list_label, split_seed, testsize=0.2, validationsize=0.2, usetestflag=False):
     if not usetestflag:
         train_vali_set_x, test_set_x, train_vali_set_y, test_set_y, train_vali_set_id, test_set_id = train_test_split(
@@ -100,7 +99,6 @@ def pad_sequences(sequences, maxlen, padding='post'):
                 padded_sequences[i, -len(seq):] = seq
     return padded_sequences
 
-# 数据读取模板类
 class DataProcessor:
     def __init__(self, file_path, verbose=1, seed=1):
         self.file_path = file_path
@@ -116,7 +114,7 @@ class DataProcessor:
             print("Getting data from file:", self.file_path)
 
 class Action_json_data(DataProcessor):
-    # 初始化函数
+
     def __init__(self, file_path, verbose=1, seed=1):
         super().__init__(file_path=file_path, verbose=verbose, seed=seed)
 
@@ -139,7 +137,6 @@ class Action_json_data(DataProcessor):
         }
         return res
 
-# 训练和验证函数
 class ModelTrainer:
     def __init__(self, model, train_loader, val_loader, criterion, optimizer, epochs, model_dir, device, dataset, patience=5):
         self.model = model
@@ -207,7 +204,6 @@ class ModelTrainer:
         print(f'Validation Loss: {avg_val_loss:.4f}')
         return avg_val_loss
 
-# 加载配置文件
 config = yaml.safe_load(open("./TFModel/config/smallmodel.yaml", 'r', encoding="UTF-8"))
 
 dataset = config.get('SmallModel').get('dataset')
@@ -220,7 +216,6 @@ model_save_path = config.get('SmallModel').get('model_save_path')
 epochs = config.get('SmallModel').get('epochs')
 patience = config.get('SmallModel').get('patience')
 
-# 读取数据
 datapath = os.getcwd() + os.sep + "Data" + os.sep + dataset + os.sep + "train_set.csv"
 Operate_data = Action_json_data(file_path=datapath, verbose=-1, seed=1)
 Texts = Operate_data.get_data()["texts"].tolist()
@@ -230,7 +225,6 @@ Types = Operate_data.get_data()["types"].tolist()
 Labels = [int(i) for i in Ylab]
 Labels = np.array(Labels)
 
-# 训练Word2Vec模型
 w2v_model = Word2Vec([text.split() for text in Texts], vector_size=100, window=5, min_count=1, workers=4)
 embedded_texts = []
 for text in Texts:
@@ -239,37 +233,31 @@ for text in Texts:
     if len(embedded_seq) > 0:
         embedded_texts.append(np.array(embedded_seq))
     else:
-        embedded_texts.append(np.zeros((1, w2v_model.vector_size)))  # 用零向量填充
+        embedded_texts.append(np.zeros((1, w2v_model.vector_size)))  
 
 padded_texts = pad_sequences(embedded_texts, max_sequence_length)
 
-# 保存Word2Vec模型
 w2v_model_save_path = os.path.join(model_save_path, dataset, "word2vec.model")
 w2v_model.save(w2v_model_save_path)
 
-# 数据分割
 print("Partition the data....")
 train_set_x, train_set_y, train_set_id, validation_set_x, validation_set_y, validation_set_id = partition_data(
     padded_texts, Types, Labels, split_seed, usetestflag=True)
 
-# 转换为 PyTorch tensors
 train_set_x = torch.tensor(train_set_x, dtype=torch.float32)
 train_set_y = torch.tensor(train_set_y, dtype=torch.long)
 validation_set_x = torch.tensor(validation_set_x, dtype=torch.float32)
 validation_set_y = torch.tensor(validation_set_y, dtype=torch.long)
 
-# 创建 Dataset 和 DataLoader
 train_dataset = TensorDataset(train_set_x, train_set_y)
 val_dataset = TensorDataset(validation_set_x, validation_set_y)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
 
-# 打印一些信息
 print(f"Training set size: {len(train_dataset)}")
 print(f"Validation set size: {len(val_dataset)}")
 
-# 检查是否有可用的 GPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
@@ -279,7 +267,6 @@ if device.type == 'cuda':
     print(f"GPU Name: {gpu_name}")
     print(f"Compute Capability: {compute_capability[0]}.{compute_capability[1]}")
 
-# 模型实例化
 input_dim = 100  # Word2Vec vector size
 num_classes = len(set(Labels))
 hidden_dim = 128
@@ -288,7 +275,6 @@ model = C_BLA(input_dim, hidden_dim, num_classes).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# 创建并训练模型
 trainer = ModelTrainer(model, train_loader, val_loader, criterion,
                         optimizer, epochs, model_save_path, 
                         device, dataset, patience)

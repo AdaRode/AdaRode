@@ -1,0 +1,8 @@
+pandas==2.2.1
+numpy==1.26.4
+scikit-learn==1.4.2
+tqdm==4.65.0
+PyYAML==6.0.1
+transformers==4.31.0
+torch==2.2.2
+tensorflow-gpu==2.10.0

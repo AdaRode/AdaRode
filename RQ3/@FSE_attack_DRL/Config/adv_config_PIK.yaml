@@ -1,0 +1,21 @@
+paths:
+  PIK:
+    data: "/root/autodl-tmp/@ICSE_RQ3_RL/Data/PIK/shuffled_data_part_1.csv"
+    augmented_data_save_path: "/root/autodl-tmp/@ICSE_RQ3_RL/Aug/Augmentation/augdata/PIK/"
+
+
+parameters:
+  device: "cuda:0"
+  max_iterations: 100
+  patience: 20
+
+n_workers: 2
+
+# 这里直接协商对应模型的路径就好了
+XLnet:
+  name: 'XLnet'
+  path: '/root/autodl-fs/xlnet-base-cased'
+  checkpoint: '/root/autodl-tmp/@ICSE_RQ3_RL/Model/PIK/XLnet/Best.pth'
+  num_labels: 3
+  tokenizer: '/root/autodl-fs/xlnet-base-cased'
+batch_size: 32
