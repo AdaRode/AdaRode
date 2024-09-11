@@ -1,0 +1,12 @@
+paths:
+  augmented_data_save_path: "./augdata/adv_data_PIK.pickle"
+  attack_result_save_path: "./augdata/"
+
+parameters:
+  dataname: PIK
+  device: "cuda:0"
+  max_iterations: 100
+  accept_rate: 0.95
+  patience: 20
+
+n_workers: 2
