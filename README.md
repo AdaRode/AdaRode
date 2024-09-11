@@ -185,3 +185,56 @@ python RQ3/Aug/<algorithm_name>_<dataset_name>.py
 
 Retrieve the JSON data from each algorithm's `augdata` and store it in the corresponding location within `Result` to replicate the entire attack process.
 
+## Reproducing Discussions
+
+### Running Test Scripts to Reproduce Results
+
+To reproduce the results, you can simply run the `test.py` scripts located in the following directories:
+
+```plaintext
+Disscussion\Disscussion\@FSE_Disscussion_2_TestTableIX\DBN\test.py
+Disscussion\Disscussion\@FSE_Disscussion_2_TestTableIX\RNN\test.py
+```
+
+### Reproducing the Enhancement Process
+
+To fully reproduce the enhancement process, follow these steps:
+
+1. **Attack Detection Models using AdaRode:**
+
+   Navigate to the `Disscussion\Disscussion\` directory and run the attack scripts for the detection models.
+
+   ```plaintext
+   Disscussion\Disscussion\<Algorithm_Folder>\AdaRode\Aug\AdaRode_PIK.py
+   ```
+
+2. **Generate Adversarial Samples:**
+
+   This will generate adversarial samples and save them in the following file:
+
+   ```plaintext
+   AdaRode\augdata\adv_data_PIK.pickle
+   ```
+
+3. **Rename and Relocate Adversarial Samples:**
+
+   Rename the adversarial sample file and move it to the corresponding directory for retraining.
+
+   ```plaintext
+   <Algorithm_Folder>\AdaRetrain\Data\adv_data.pickle
+   ```
+
+4. **Retrain Models with Adversarial Data:**
+
+   Use the renamed adversarial samples for adversarial training to obtain enhanced models.
+
+5. **Test Enhanced Models:**
+
+   Place the retrained models in the appropriate directory for testing.
+
+   ```plaintext
+   Disscussion\Disscussion\@FSE_Disscussion_2_TestTableIX\<Model_Folder>\
+   ```
+
+Now, run the `test.py` scripts again to evaluate the enhanced models.
+
