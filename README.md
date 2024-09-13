@@ -1,7 +1,7 @@
 
 # AdaRode Reproduction Code Repository
 
-This repository contains the reproduction code for the paper "Towards Cost-effective Robust Detection for Persistent Malicious Injection Variants." The code is organized to help you reproduce the results for the research questions RQ1, RQ2, and RQ3.
+This anonymous repository contains the reproduction code for the paper "Towards Cost-effective Robust Detection for Persistent Malicious Injection Variants." The code is organized to help you reproduce the results for the research questions RQ1, RQ2, and RQ3.
 
 ## Table of Contents
 - [Requirements](#requirements)
@@ -9,7 +9,6 @@ This repository contains the reproduction code for the paper "Towards Cost-effec
 - [Reproducing RQ1](#reproducing-rq1)
 - [Reproducing RQ2](#reproducing-rq2)
 - [Reproducing RQ3](#reproducing-rq3)
-- [Contact](#contact)
 
 ## Requirements
 - Python 3.10 or higher
