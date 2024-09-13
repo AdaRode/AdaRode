@@ -100,32 +100,30 @@ python Aug/AdaRode.py
 
 ## Reproducing RQ2
 To reproduce the results for RQ2, run the following command:
-# README.md
 
-## Overview
-This project aims to evaluate the performance of various detectors on original attacks and attacks using MIVs. Below are the instructions to reproduce the results and retrain the models.
+The RQ2 file aims to evaluate the performance of various detectors on original attacks and attacks using MIVs. Below are the instructions to reproduce the results and retrain the models.
 
-## Baseline Reproducibility
+### Baseline Reproducibility
 
-### Reproducing Detector Performance on Original Attack
+#### Reproducing Detector Performance on Original Attack
 1. Navigate to the `Baseline_Reproducibility` directory.
 2. Download the pre-trained model for each detector.
 3. Run `test.py` to reproduce the results.
 
-### Retraining the Model
+#### Retraining the Model
 To retrain the model, execute the following script:
 ```bash
 python train.py
 ```
 
-## Reproducing Attack using MIV
+### Reproducing Attack using MIV on Baseline
 
-### Steps to Reproduce
+#### Steps to Reproduce
 1. Download the pre-trained models or use your previously trained models.
 2. Modify the attack model in `@RSAttacker/Attackers/Rsample.py` by editing lines 19-56.
 3. Run the attack script to generate a new data file. This file will be saved in `@RSAttacker/Attackers/AdvMut_data/`.
 
-### Evaluating Attack using MIV
+#### Evaluating Attack using MIV
 1. Move the generated data file to the `Baseline_Reproducibility` directory.
 2. Modify `test.py` to switch between evaluating original attack data and attack using MIV data:
 ```python
@@ -139,26 +137,26 @@ Labels = data['adv_label']
 ```
 3. Run `test.py` to evaluate the results.
 
-## Device Configuration
+#### Device Configuration
 Ensure the correct device configuration in `test.py`:
 ```python
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ```
 
 
-### Test Our AdaRode
+### Test Our AdaRode (with MIVs and without MIVs)
 
-1. **Test without PMIV**:
+1. **Test without MIV**:
    ```bash
    python \AdaRode-A&N\Test_withoutPMIV.py
    ```
 
-2. **Test with PMIV**:
+2. **Test with MIV**:
    ```bash
    python \AdaRode-A&N\Test_withPMIV.py
    ```
 
-### Conducting Real-time Attack
+#### Conducting Real-time Attack
 
 1. Insert your model into the `@RSAttacker` module to perform the attack and obtain real-time data.
 
